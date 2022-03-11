@@ -1,40 +1,31 @@
 const BASEURL = 'https://pokeapi.co/api/v2';
 
-//1
-let totalcount = 0
-$.getJSON(`${BASEURL}/pokemon`)
-    .then(data => {
-        console.log(data)
-        totalcount = data.count
-    })
-
-let random = Math.random()
-
-// let favNumber = 3;
-
 // //1
-// $.getJSON(`${BASEURL}/${favNumber}?json`)
+// let randomId = [];
+// $.getJSON(`${BASEURL}/pokemon?limit=1126`)
 //     .then(data => {
-//         console.log(data);
+//         for (let i = 0; i < 3; i++) {
+//             let random = Math.floor(Math.random() * data.count)
+//             let url = data.results[random].url
+//             $.getJSON(url).then(
+//                 data => {
+//                     speurl = data.species.url
+//                     $.getJSON(speurl).then(
+//                         data => {
+//                             let name = data.name;
+//                             let text = data.flavor_text_entries.find(entry => entry.language.name === 'en')
+//                             console.log(name, text)
+//                         })
+//                 }
+//             )
+//         }
 //     })
-//     .catch(err => {
-//         console.log(err);
-//     });
 
-// //2
-// let favNumbers = [1, 5, 10];
-// $.getJSON(`${BASEURL}/${favNumbers}?json`)
-//     .then(data => {
-//         console.log(data);
-//     })
-//     .catch(err => {
-//         console.log(err);
-//     });
-// //3
-// Promise.all(
-//     Array.from({ length: 4 }, () => {
-//         return $.getJSON(`${BASEURL}/${favNumber}?json`);
-//     })
-// ).then(facts => {
-//     facts.forEach(data => $('body').append(`<p>${data.text}</p>`));
-// });
+//2
+
+async function getStarWarData() {
+    console.log('starting');
+    let movieData = await axios.get(`${BASEURL}/pokemon?limit=1126`);
+    console.log('all done');
+    console.log(movieData.data);
+}
